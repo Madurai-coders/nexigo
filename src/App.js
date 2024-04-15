@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/home';
+import Vigor from './components/vigor';
+   import { RoundedBox,ScrollControls,Scroll,Environment } from '@react-three/drei';
+   import { Bt } from '../src/components/bat';
+   function App() {
+     return (
+      <>
+      <color attach="background" args={['#ffffff']}/>
+      <ambientLight intensity={0} /> 
+         <Environment
+           preset='warehouse'
+         />
+   <ScrollControls pages={3} damping={0.1}>
+   <Bt/>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+     <Scroll>
 
-export default App;
+     </Scroll>
+     <Scroll html style={{width: '100%'}}>
+  <Home/>
+    <Vigor/>
+     </Scroll>
+   </ScrollControls>
+   
+      </>
+     );
+   }
+   
+   export default App;
+   
